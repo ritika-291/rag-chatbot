@@ -1,0 +1,29 @@
+# Environments
+.env
+.env.local
+.env.*
+venv/
+ENV/
+env/
+.venv/
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+doc/_build/
+target/
+
+# Database files
+*.db
+*.sqlite3
+
+# Local/IDE configurations
+.vscode/
+.idea/
+.DS_Store
+
+# Chatbot data files
+pdf_extracted_text.txt

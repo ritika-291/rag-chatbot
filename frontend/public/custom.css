@@ -1,0 +1,63 @@
+#token-progress-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+
+#token-progress-circle svg {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+}
+
+.download-chat-btn {
+    position: fixed;
+    top: 15px;
+    right: 150px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #F80061;
+    color: white;
+    border: 1px solid var(--chainlit-border-primary, rgba(255, 255, 255, 0.2));
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s, opacity 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.download-chat-btn:hover {
+    background-color: #D00052;
+}
+
+.download-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide Chainlit Watermarks and branding links */
+a[href*="chainlit.io"],
+[class*="watermark"],
+.watermark {
+    display: none !important;
+}
