@@ -21,6 +21,7 @@ def get_embeddings():
             model=settings.EMBEDDING_MODEL,
             api_key=settings.LLM_API_KEY,
             base_url=settings.LLM_URL,
+            check_embedding_ctx_length=False,
         )
     return _embeddings_client
 

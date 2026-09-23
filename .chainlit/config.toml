@@ -72,7 +72,7 @@ reaction_on_message_received = false
 
 [features.audio]
     # Enable audio features
-    enabled = true
+    enabled = false
     # Sample rate of the audio
     sample_rate = 24000
 
@@ -80,9 +80,41 @@ reaction_on_message_received = false
     # Enable Model Context Protocol (MCP) features
     enabled = false
 
+    # Developer-configured MCP servers. Users can connect them by name.
+    # Supported types: "stdio" (server-side process), "sse", "streamable-http" (outbound HTTP).
+    #
+    # Migration note: if you previously used [features.mcp.sse], [features.mcp.stdio], or
+    # [features.mcp.streamable-http] sections, replace them with [[features.mcp.servers]] entries.
+    #
+    # [[features.mcp.servers]]
+    # name = "github"
+    # type = "stdio"
+    # command = "npx -y @modelcontextprotocol/server-github"
+    # # Optional: environment variables merged over the default subprocess
+    # # environment at spawn time. Never exposed to clients.
+    # env = { GITHUB_TOKEN = "..." }
+    #
+    # [[features.mcp.servers]]
+    # name = "my-sse-server"
+    # type = "sse"
+    # url = "https://mcp.example.com/sse"
+    #
+    # [[features.mcp.servers]]
+    # name = "my-http-server"
+    # type = "streamable-http"
+    # url = "https://mcp.example.com/mcp"
+
+    [features.mcp.user_servers]
+        # Opt-in: allow end-users to connect their own SSE or streamable-http MCP servers.
+        # stdio is never user-provided (server-side config only).
+        enabled = false
+        # Allowlist of permitted URL prefixes. Empty list = deny all.
+        # Example: allowed_urls = ["https://mcp.example.com"]
+        allowed_urls = []
+
 [UI]
 # Name of the assistant.
-name = "DocBuddy"
+name = "Assistant"
 
 # default_theme = "dark"
 
@@ -111,14 +143,14 @@ cot = "full"
 
 # Specify a CSS file that can be used to customize the user interface.
 # The CSS file can be served from the public directory or via an external link.
-custom_css = "/public/custom.css?v=4"
+# custom_css = "/public/test.css"
 
 # Specify additional attributes for a custom CSS file
 # custom_css_attributes = "media=\"print\""
 
 # Specify a JavaScript file that can be used to customize the user interface.
 # The JavaScript file can be served from the public directory.
-custom_js = "/public/custom.js?v=4"
+# custom_js = "/public/test.js"
 
 # The style of alert boxes. Can be "classic" or "modern".
 alert_style = "classic"
@@ -140,7 +172,7 @@ alert_style = "classic"
 # custom_meta_image_url = "https://chainlit-cloud.s3.eu-west-3.amazonaws.com/logo/chainlit_banner.png"
 
 # Load assistant logo directly from URL.
-logo_file_url = "/public/logo_dark.png?v=4"
+logo_file_url = ""
 
 # Load assistant avatar image directly from URL.
 default_avatar_file_url = ""
@@ -162,4 +194,4 @@ default_avatar_file_url = ""
 #     target = "_blank" (default)  # Optional: "_self", "_parent", "_top".
 
 [meta]
-generated_by = "2.11.1"
+generated_by = "2.12.0"

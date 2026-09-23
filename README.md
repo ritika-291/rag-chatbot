@@ -102,7 +102,7 @@ You need to run both the backend server and the frontend client simultaneously.
 
 #### Start the FastAPI Backend:
 ```bash
-uvicorn backend.main:app --reload --port 8001
+uvicorn backend.main:app --reload --reload-dir backend --port 8001
 ```
 
 #### Start the Chainlit Frontend:
